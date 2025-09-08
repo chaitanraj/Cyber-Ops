@@ -27,7 +27,7 @@ async function doesDomainExist(url) {
 }
 
 const VIRUSTOTAL_API_URL = "https://www.virustotal.com/api/v3/urls";
-const VIRUSTOTAL_API_KEY = "9e808a3b6ccde20e20fa05efdc1a0f8bd1042ca96a3b47c7ce048db610c6a23a";
+const VIRUSTOTAL_API_KEY = process.env.API_KEY;
 
 const urlCheckController = async (req, res) => {
   console.log("URL Check controller triggered, body:", req.body);

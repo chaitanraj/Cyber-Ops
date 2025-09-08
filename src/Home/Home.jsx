@@ -102,7 +102,7 @@ const Home = () => {
                         </div>
                 </div>
                 </div>
-                <div className={styles.infosection3}>
+                {/* <div className={styles.infosection3}>
                     <div className={styles.infocard}>
                         <div className={styles.infotext}>
                             <h2>How CyberOps Helps You?</h2>
@@ -110,10 +110,10 @@ const Home = () => {
                             </p>
                         </div>
                         <div className={styles.imageContainer}>
-                            {/* <img src={hacker3} alt="Shield" className={styles.infoicon} /> */}
+                            <img src={hacker3} alt="Shield" className={styles.infoicon} />
                         </div>
                     </div>
-                </div>
+                </div> */}
                 </div>
 
             </div>

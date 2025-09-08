@@ -50,7 +50,7 @@ const Footer = ({ isHomePage }) => {
                         </a>
                         <div className="tooltip">GitHub</div>
                     </li>
-                    <li className="icon-content">
+                    {/* <li className="icon-content">
                         <a href="https://www.instagram.com/" aria-label="Instagram" data-social="instagram">
                             <div className="filled"></div>
                             <svg
@@ -67,7 +67,7 @@ const Footer = ({ isHomePage }) => {
                             </svg>
                         </a>
                         <div className="tooltip">Instagram</div>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
 

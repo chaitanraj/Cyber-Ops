@@ -5,9 +5,25 @@ const cors = require("cors");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+const {urlCheckController, getUrl, extensionUrlCheck} = require("./controller/urlController");
 
+const corsOptions = {
+  origin: [
+    'chrome-extension://*', // Allow all Chrome extensions
+    'http://localhost:*',   // Allow localhost for testing
+    'https://localhost:*'   // Allow HTTPS localhost
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+  credentials: true
+};
 
-app.use(cors());
+// Apply CORS middleware
+app.use(cors(corsOptions));
+
+// Handle preflight OPTIONS requests
+app.options('*', cors(corsOptions))
+
 app.use(express.json());
 
 
@@ -22,11 +38,13 @@ mongoose
     next();
   });
   
-  app.use("/api/url", require("./routes/urlRoutes"));
+app.use("/api/url", require("./routes/urlRoutes"));
 
 
 // Sample route for testing
 app.use("/api", require("./routes/auth"));
+app.post("/check-url", extensionUrlCheck);
+app.post("/api/check-url", extensionUrlCheck);
 
 // Start server
 app.listen(PORT, () => {

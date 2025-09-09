@@ -203,7 +203,7 @@ body, html {
 }
 .infotext p{
   /* font-family: "SF Pro", sans-serif;  */
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-weight: 500;
 }
 .infocard {
@@ -241,8 +241,9 @@ body, html {
 }
 
 .infocard h2 {
-  font-size: 2em;
+  font-size: 2.2em;
   margin-bottom: 10px;
+  font-weight: 300;
 }
 .infocard div:first-child {
   flex: 1;
@@ -273,7 +274,7 @@ body, html {
   padding: 20px;
   gap: 2vw;
   color: white;
-  font-size: 2em;
+  font-size: 1.7em;
   width: 100%;
   /* max-width: 1200px;  */
 }

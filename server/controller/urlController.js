@@ -143,8 +143,7 @@ const getUrl = async (req, res) => {
   }
 };
 
-// Add this new function to your existing urlController.js file
-
+// Extension Url Checkup
 const extensionUrlCheck = async (req, res) => {
   console.log("Extension URL check triggered:", req.body);
   const { url } = req.body;
@@ -158,7 +157,6 @@ const extensionUrlCheck = async (req, res) => {
   }
 
   try {
-    // Check if domain exists first
     const domainExists = await doesDomainExist(url);
     if (!domainExists) {
       return res.json({
@@ -170,10 +168,8 @@ const extensionUrlCheck = async (req, res) => {
       });
     }
 
-    // Use your existing VirusTotal function
     const isMalicious = await checkUrlWithVirusTotal(url);
     
-    // Convert your existing response format to extension format
     const confidence = isMalicious ? 0.85 : 0.90; // High confidence from VirusTotal
 
     return res.json({
@@ -190,7 +186,7 @@ const extensionUrlCheck = async (req, res) => {
   } catch (error) {
     console.error("Extension URL check error:", error.message);
     
-    // Fallback response on error
+    
     return res.status(200).json({
       url,
       isPhishing: false,
@@ -202,6 +198,5 @@ const extensionUrlCheck = async (req, res) => {
   }
 };
 
-// Update your module.exports to include the new function
 module.exports = { urlCheckController, getUrl, extensionUrlCheck };
 

@@ -1,7 +1,6 @@
-// Background script for Cyber-Ops Phishing Detector
-const API_BASE_URL = 'http://localhost:5000'; // Your Express server URL
+const API_BASE_URL = 'http://localhost:5000';
 
-// Create context menu when extension loads
+// context menu when extension loads
 chrome.runtime.onInstalled.addListener(() => {
   console.log('Cyber-Ops extension installed');
   
@@ -21,7 +20,7 @@ chrome.runtime.onInstalled.addListener(() => {
       contexts: ["page"]
     });
 
-    // Context menu for selected text (if it looks like a URL)
+    // Context menu for text
     chrome.contextMenus.create({
       id: "checkSelection",
       title: "🛡️ Check selected URL with Cyber-Ops",
@@ -87,7 +86,6 @@ async function checkURL(url) {
   try {
     console.log('Starting URL check for:', url);
     
-    // Show checking notification
     showNotification("Cyber-Ops Analysis", `Checking: ${getDomainFromUrl(url)}...`);
 
     const response = await fetch(`${API_BASE_URL}/api/check-url`, {
@@ -105,7 +103,6 @@ async function checkURL(url) {
     const result = await response.json();
     console.log('API response:', result);
     
-    // Show result notification
     showResultNotification(url, result);
 
   } catch (error) {
@@ -147,7 +144,6 @@ function showResultNotification(url, result) {
   }
 }
 
-// Generic notification helper
 function showNotification(title, message) {
   try {
     chrome.notifications.create({
@@ -167,7 +163,6 @@ function showNotification(title, message) {
   }
 }
 
-// Extract domain from URL for display
 function getDomainFromUrl(url) {
   try {
     return new URL(url).hostname;
@@ -176,7 +171,6 @@ function getDomainFromUrl(url) {
   }
 }
 
-// Handle service worker errors
 self.addEventListener('error', (event) => {
   console.error('Service worker error:', event.error);
 });

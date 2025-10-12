@@ -31,6 +31,10 @@ app.use("/api", require("./routes/auth"));
 app.post("/check-url", extensionUrlCheck);
 app.post("/api/check-url", extensionUrlCheck);
 
+app.get("/health",(req,res)=>{
+  res.send(`Server is up and running on ${PORT}`)
+})
+
 // Start server
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);

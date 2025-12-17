@@ -109,22 +109,6 @@ const Loginresult = () => {
     <div className="resultcard">
       <div className="result">
         <h1 className="resultheader">Phishing Detection</h1>
-{/*         
-        <div className="mode-toggle">
-          <button 
-            className={phishmode === "site" ? "active" : ""} 
-            onClick={() => handleModeChange("site")}
-          >
-            Check Website
-          </button>
-          <button 
-            className={phishmode === "mail" ? "active" : ""} 
-            onClick={() => handleModeChange("mail")}
-          >
-            Check Email
-          </button>
-        </div> */}
-        
         <div className="resultfield">
           {phishmode === "site" && (
             <>

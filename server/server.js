@@ -11,8 +11,6 @@ app.use(cors());
 
 app.use(express.json());
 
-
-// MongoDB connection
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("✅ Connected to MongoDB"))
@@ -26,7 +24,7 @@ mongoose
 app.use("/api/url", require("./routes/urlRoutes"));
 
 
-// Sample route for testing
+
 app.use("/api", require("./routes/auth"));
 app.post("/check-url", extensionUrlCheck);
 app.post("/api/check-url", extensionUrlCheck);
